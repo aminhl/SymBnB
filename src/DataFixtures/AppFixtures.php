@@ -12,6 +12,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr-FR');
+
         for($i = 1; $i<=30; ++$i){
             $ad = new Ad();
             $title = $faker->sentence();
@@ -20,7 +21,6 @@ class AppFixtures extends Fixture
             $content = '<p>' . join('<p></p>',$faker->paragraphs(5)) . '</p>';
 
             $ad->setTitle($title)
-               ->setSlug("Titre-de-l-annonce-n-$i")
                ->setCoverImage($coverImage)
                ->setIntroduction($introduction)
                ->setContent($content)
